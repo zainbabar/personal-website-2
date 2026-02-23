@@ -58,6 +58,7 @@ export default function Terminal() {
 
       const outputs: CommandOutput[] =
         COMMANDS[cmd] ??
+        (cmd.startsWith("sudo ") ? COMMANDS["sudo"] : null) ??
         [
           {
             type: "error",

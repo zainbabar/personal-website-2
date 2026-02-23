@@ -8,10 +8,9 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
   help: [
     { type: "text", content: "Available commands:" },
     { type: "success", content: "  about       →  Who am I" },
-    { type: "success", content: "  skills      →  Tech stack & languages" },
-    { type: "success", content: "  projects    →  What I've built" },
     { type: "success", content: "  education   →  Academic background" },
     { type: "success", content: "  contact     →  Get in touch" },
+    { type: "success", content: "  ls          →  List files" },
     { type: "success", content: "  clear       →  Clear terminal" },
   ],
 
@@ -121,6 +120,42 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
     },
     { type: "text", content: "" },
     { type: "success", content: "  Or use the contact form below ↓" },
+  ],
+
+  ls: [
+    { type: "text",    content: "total 128" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   4.2K  quant_strategy.py" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   8.8K  arena_allocator.c" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   3.1K  monte_carlo_pricer.py" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   2.4K  black_scholes.ipynb" },
+    { type: "success", content: "drwxr-xr-x  4 zain zain   128B  secret_project/" },
+    { type: "error",   content: "-rw-------  1 zain zain   ???B  do_not_open.tar.gz" },
+    { type: "text",    content: "-rw-r--r--  1 zain zain   1.1K  .bashrc" },
+  ],
+
+  "rm -rf /": [
+    { type: "error",   content: "rm: removing '/bin/'" },
+    { type: "error",   content: "rm: removing '/boot/'" },
+    { type: "error",   content: "rm: removing '/dev/'" },
+    { type: "error",   content: "rm: removing '/etc/'" },
+    { type: "error",   content: "rm: removing '/home/'" },
+    { type: "error",   content: "rm: removing '/lib/'" },
+    { type: "error",   content: "rm: removing '/opt/'" },
+    { type: "error",   content: "rm: removing '/root/'" },
+    { type: "error",   content: "[▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░] 61%  still going..." },
+    { type: "error",   content: "rm: cannot remove '/proc/sysrq-trigger': Device or resource busy" },
+    { type: "error",   content: "rm: cannot remove '/proc/1': Operation not permitted" },
+    { type: "error",   content: "rm: cannot remove '/sys/kernel/security': Permission denied" },
+    { type: "error",   content: "Segmentation fault (core dumped)" },
+    { type: "text",    content: "" },
+    { type: "text",    content: "just kidding. everything is fine." },
+  ],
+
+  sudo: [
+    { type: "error", content: "[sudo] password for zain:" },
+    { type: "error", content: "Sorry, try again." },
+    { type: "error", content: "Sorry, try again." },
+    { type: "error", content: "sudo: 3 incorrect password attempts" },
   ],
 };
 
