@@ -127,6 +127,7 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
 export const BOOT_LINES = [
   "Initializing portfolio v2.0...",
   "Loading modules: [math] [quant] [ai] [systems]",
-  "Connecting to DGX Spark cluster... OK",
+  "Connecting to remote server... OK",
+  "Breaking into the mainframe... ACCESS GRANTED",
   'Type "help" to see available commands.',
 ];
