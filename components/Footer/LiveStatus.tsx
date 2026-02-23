@@ -69,12 +69,12 @@ interface StatTileProps {
   color?: string;
 }
 
-function StatTile({ icon, label, value, color = "text-[#00ff88]" }: StatTileProps) {
+function StatTile({ icon, label, value, color = "text-accent" }: StatTileProps) {
   return (
     <div className="flex items-center gap-3">
       <span className={`${color} flex-shrink-0`}>{icon}</span>
       <div>
-        <div className="font-mono text-[10px] text-[#404040] tracking-widest uppercase">
+        <div className="font-mono text-[10px] text-muted tracking-widest uppercase">
           {label}
         </div>
         <div className={`font-mono text-sm font-medium ${color}`}>{value}</div>
@@ -87,13 +87,13 @@ export default function LiveStatus() {
   const status = useLiveStatus();
 
   return (
-    <div className="border-t border-[#1f1f1f] bg-[#0a0a0a] px-6 py-5">
+    <div className="border-t border-border bg-background px-6 py-5">
       <div className="max-w-6xl mx-auto">
         {/* Top row: indicator + task */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse" />
-            <span className="font-mono text-xs text-[#404040] tracking-widest uppercase">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="font-mono text-xs text-muted tracking-widest uppercase">
               System Live
             </span>
           </div>
@@ -105,9 +105,9 @@ export default function LiveStatus() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="flex items-center gap-2 font-mono text-xs text-[#606060]"
+                className="flex items-center gap-2 font-mono text-xs text-text-description"
               >
-                <Activity size={11} className="text-[#00ff88]" />
+                <Activity size={11} className="text-accent" />
                 <span>{status?.currentTask ?? "—"}</span>
               </motion.div>
             )}
@@ -123,7 +123,7 @@ export default function LiveStatus() {
             color={
               status && status.cpuLoad > 75 ? "text-red-400" :
               status && status.cpuLoad > 50 ? "text-yellow-400" :
-              "text-[#00ff88]"
+              "text-accent"
             }
           />
           <StatTile
@@ -133,7 +133,7 @@ export default function LiveStatus() {
             color={
               status && status.gpuTemp > 70 ? "text-red-400" :
               status && status.gpuTemp > 60 ? "text-yellow-400" :
-              "text-[#00ff88]"
+              "text-accent"
             }
           />
           <StatTile
@@ -150,11 +150,11 @@ export default function LiveStatus() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-6 pt-4 border-t border-[#0f0f0f] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div className="font-mono text-xs text-[#2a2a2a]">
+        <div className="mt-6 pt-4 border-t border-border-faint flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="font-mono text-xs text-text-faint">
             © {new Date().getFullYear()} Zain Babar
           </div>
-          <div className="font-mono text-xs text-[#2a2a2a]">
+          <div className="font-mono text-xs text-text-faint">
             Built with Next.js · Tailwind · Framer Motion
           </div>
         </div>

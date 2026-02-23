@@ -22,7 +22,7 @@ const HARDWARE: HardwareItem[] = [
     subtitle: "AI Workstation",
     icon: <Cpu size={28} />,
     badge: "ACTIVE",
-    badgeColor: "text-[#00ff88] border-[#00ff8830] bg-[#00ff8810]",
+    badgeColor: "text-accent border-accent-border bg-accent-hover",
     description:
       "Compact AI supercomputer powered by NVIDIA Grace Blackwell. Used for local LLM inference, CUDA kernel development, and training small-to-mid scale models.",
     specs: [
@@ -105,15 +105,15 @@ export default function HardwareGallery() {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-xs text-[#00ff88] tracking-widest uppercase">
+            <span className="font-mono text-xs text-accent tracking-widest uppercase">
               03 / Hardware
             </span>
-            <div className="flex-1 h-px bg-[#1f1f1f]" />
+            <div className="flex-1 h-px bg-border" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e5e5e5] tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             The Setup
           </h2>
-          <p className="mt-3 text-sm text-[#606060] max-w-lg">
+          <p className="mt-3 text-sm text-text-description max-w-lg">
             AI compute, custom server racks, and the hardware that powers my research.
           </p>
         </motion.div>
@@ -128,17 +128,17 @@ export default function HardwareGallery() {
                 onClick={() => setActive(i)}
                 className={`flex-shrink-0 text-left px-4 py-3 rounded-lg border transition-all duration-200 ${
                   i === active
-                    ? "border-[#00ff88]/40 bg-[#00ff8808] text-[#e5e5e5]"
-                    : "border-[#1f1f1f] bg-[#111111] text-[#606060] hover:border-[#2a2a2a] hover:text-[#a0a0a0]"
+                    ? "border-accent-border bg-accent-glow text-foreground"
+                    : "border-border bg-card text-text-description hover:border-border-subtle hover:text-text-secondary"
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <span className={i === active ? "text-[#00ff88]" : "text-[#404040]"}>
+                  <span className={i === active ? "text-accent" : "text-muted"}>
                     {hw.icon}
                   </span>
                   <div>
                     <div className="font-mono text-sm font-medium">{hw.name}</div>
-                    <div className="font-mono text-xs text-[#404040]">{hw.subtitle}</div>
+                    <div className="font-mono text-xs text-muted">{hw.subtitle}</div>
                   </div>
                 </div>
               </button>
@@ -154,48 +154,48 @@ export default function HardwareGallery() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="bg-[#111111] border border-[#1f1f1f] rounded-xl p-8"
+                className="bg-card border border-border rounded-xl p-8"
               >
                 {/* Card header */}
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[#00ff88]">{item.icon}</span>
+                      <span className="text-accent">{item.icon}</span>
                       <span className={`font-mono text-[10px] border px-2 py-0.5 rounded tracking-wider ${item.badgeColor}`}>
                         {item.badge}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-[#e5e5e5]">{item.name}</h3>
-                    <p className="font-mono text-xs text-[#404040] mt-0.5">{item.subtitle}</p>
+                    <h3 className="text-xl font-bold text-foreground">{item.name}</h3>
+                    <p className="font-mono text-xs text-muted mt-0.5">{item.subtitle}</p>
                   </div>
                   {/* Navigation arrows */}
                   <div className="flex gap-2">
                     <button
                       onClick={prev}
-                      className="p-2 border border-[#1f1f1f] rounded-lg text-[#404040] hover:text-[#00ff88] hover:border-[#00ff8830] transition-colors"
+                      className="p-2 border border-border rounded-lg text-muted hover:text-accent hover:border-accent-border transition-colors"
                     >
                       <ChevronLeft size={16} />
                     </button>
                     <button
                       onClick={next}
-                      className="p-2 border border-[#1f1f1f] rounded-lg text-[#404040] hover:text-[#00ff88] hover:border-[#00ff8830] transition-colors"
+                      className="p-2 border border-border rounded-lg text-muted hover:text-accent hover:border-accent-border transition-colors"
                     >
                       <ChevronRight size={16} />
                     </button>
                   </div>
                 </div>
 
-                <p className="text-sm text-[#606060] leading-relaxed mb-6">{item.description}</p>
+                <p className="text-sm text-text-description leading-relaxed mb-6">{item.description}</p>
 
                 {/* Specs */}
                 <div>
-                  <div className="font-mono text-xs text-[#404040] tracking-widest uppercase mb-3">
+                  <div className="font-mono text-xs text-muted tracking-widest uppercase mb-3">
                     Specifications
                   </div>
                   <ul className="space-y-2">
                     {item.specs.map((spec, i) => (
-                      <li key={i} className="flex items-start gap-2 font-mono text-sm text-[#a0a0a0]">
-                        <span className="text-[#00ff88] mt-0.5 flex-shrink-0">›</span>
+                      <li key={i} className="flex items-start gap-2 font-mono text-sm text-text-secondary">
+                        <span className="text-accent mt-0.5 flex-shrink-0">›</span>
                         <span>{spec}</span>
                       </li>
                     ))}
@@ -210,8 +210,8 @@ export default function HardwareGallery() {
                       onClick={() => setActive(i)}
                       className={`h-1 rounded-full transition-all duration-200 ${
                         i === active
-                          ? "bg-[#00ff88] w-6"
-                          : "bg-[#2a2a2a] w-3 hover:bg-[#404040]"
+                          ? "bg-accent w-6"
+                          : "bg-border-subtle w-3 hover:bg-muted"
                       }`}
                     />
                   ))}

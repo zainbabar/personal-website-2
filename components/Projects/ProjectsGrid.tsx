@@ -17,15 +17,15 @@ export default function ProjectsGrid() {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
-            <span className="font-mono text-xs text-[#00ff88] tracking-widest uppercase">
+            <span className="font-mono text-xs text-accent tracking-widest uppercase">
               02 / Projects
             </span>
-            <div className="flex-1 h-px bg-[#1f1f1f]" />
+            <div className="flex-1 h-px bg-border" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e5e5e5] tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             What I&apos;ve Built
           </h2>
-          <p className="mt-3 text-sm text-[#606060] max-w-lg">
+          <p className="mt-3 text-sm text-text-description max-w-lg">
             Systems tools, quantitative models, and ML experiments — mostly in C, Python, and CUDA.
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ export default function ProjectsGrid() {
             href="https://github.com/zainbabar"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-[#404040] hover:text-[#00ff88] transition-colors tracking-wider"
+            className="font-mono text-xs text-muted hover:text-accent transition-colors tracking-wider"
           >
             ↗ See all repositories on GitHub
           </a>
