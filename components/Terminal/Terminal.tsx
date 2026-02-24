@@ -16,6 +16,9 @@ export default function Terminal() {
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [cmdHistory, setCmdHistory] = useState<string[]>([]);
   const [cmdIndex, setCmdIndex] = useState(-1);
+  const [sudoMode, setSudoMode] = useState(false);
+  const [typingMsg, setTypingMsg] = useState<string | null>(null);
+  const [typingIdx, setTypingIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -39,7 +42,23 @@ export default function Terminal() {
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [bootLines, history]);
+  }, [bootLines, history, typingIdx]);
+
+  // Typewriter effect for sudo "nice try."
+  useEffect(() => {
+    if (typingMsg === null) return;
+    if (typingIdx >= typingMsg.length) {
+      setHistory((prev) => [
+        ...prev,
+        { outputs: [{ type: "error" as const, content: typingMsg }] },
+      ]);
+      setTypingMsg(null);
+      setTypingIdx(0);
+      return;
+    }
+    const t = setTimeout(() => setTypingIdx((i) => i + 1), 75);
+    return () => clearTimeout(t);
+  }, [typingMsg, typingIdx]);
 
   const focusInput = () => inputRef.current?.focus({ preventScroll: true });
 
@@ -56,9 +75,23 @@ export default function Terminal() {
         return;
       }
 
+      if (cmd === "sudo" || cmd.startsWith("sudo ")) {
+        setHistory((prev) => [
+          ...prev,
+          {
+            command: raw.trim(),
+            outputs: [{ type: "error" as const, content: "[sudo] password for zain:" }],
+          },
+        ]);
+        setCmdHistory((prev) => [cmd, ...prev]);
+        setCmdIndex(-1);
+        setInput("");
+        setSudoMode(true);
+        return;
+      }
+
       const outputs: CommandOutput[] =
         COMMANDS[cmd] ??
-        (cmd.startsWith("sudo ") ? COMMANDS["sudo"] : null) ??
         [
           {
             type: "error",
@@ -75,6 +108,15 @@ export default function Terminal() {
   );
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (sudoMode) {
+      if (e.key === "Enter") {
+        setSudoMode(false);
+        setInput("");
+        setTypingMsg("nice try.");
+        setTypingIdx(0);
+      }
+      return;
+    }
     if (e.key === "Enter") {
       runCommand(input);
     } else if (e.key === "ArrowUp") {
@@ -176,6 +218,14 @@ export default function Terminal() {
                   </div>
                 ))}
 
+                {/* Typewriter output for sudo "nice try." */}
+                {typingMsg !== null && (
+                  <div className="font-mono text-sm leading-relaxed text-red-400 mt-1">
+                    {typingMsg.slice(0, typingIdx)}
+                    <span className="cursor-blink">█</span>
+                  </div>
+                )}
+
                 {/* Active input line */}
                 <div className="mt-3 flex items-center gap-1 font-mono text-sm text-foreground">
                   <span className="text-accent">❯</span>
@@ -185,11 +235,12 @@ export default function Terminal() {
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
                       onKeyDown={handleKeyDown}
+                      type={sudoMode ? "password" : "text"}
                       className="w-full bg-transparent outline-none text-foreground caret-accent font-mono text-sm"
                       spellCheck={false}
                       autoComplete="off"
                     />
-                    {input === "" && (
+                    {input === "" && !sudoMode && (
                       <span className="absolute left-0 top-0 cursor-blink text-accent select-none pointer-events-none">
                         █
                       </span>
