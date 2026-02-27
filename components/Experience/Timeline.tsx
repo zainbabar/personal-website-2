@@ -55,7 +55,7 @@ export default function Timeline() {
         >
           <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-xs text-accent tracking-widest uppercase">
-              04 / Experience
+              02 / Experience
             </span>
             <div className="flex-1 h-px bg-border" />
           </div>

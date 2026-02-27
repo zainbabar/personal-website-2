@@ -8,12 +8,14 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
   help: [
     { type: "text", content: "Available commands:" },
     { type: "success", content: "  about       →  Who am I" },
+    { type: "success", content: "  interests   →  What I care about" },
     { type: "success", content: "  education   →  Academic background" },
     { type: "success", content: "  contact     →  Get in touch" },
     { type: "success", content: "  ls          →  List files" },
     { type: "success", content: "  neofetch    →  System info" },
     { type: "success", content: "  clear       →  Clear terminal" },
-    // add project and skills stuff
+    // { type: "success", content: "  skills      →  My stack" },
+    // { type: "success", content: "  projects    →  What I've built" },
   ],
 
   about: [
@@ -24,82 +26,61 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
     { type: "text", content: "" },
     {
       type: "text",
-      content:
-        "I'm a Math student at the University of Waterloo with a deep interest",
+      content: "First-year Mathematics student at the University of Waterloo.",
     },
     {
       type: "text",
-      content:
-        "in Quantitative Finance, AI/ML systems, and low-level engineering.",
+      content: "Interested in AI/ML and finance — especially where they meet.",
     },
     { type: "text", content: "" },
     {
       type: "text",
-      content:
-        "I build things from CUDA kernels to Monte Carlo option pricers.",
-    },
-    {
-      type: "text",
-      content: "When I'm not at my desk, I'm probably configuring servers.",
+      content: "Currently learning, building, and figuring things out.",
     },
     { type: "text", content: "" },
-    { type: "success", content: 'Type "skills" to see my stack.' },
+    { type: "success", content: 'Type "interests" to see what I\'m into.' },
   ],
 
-  skills: [
-    { type: "text", content: "Languages:" },
-    {
-      type: "success",
-      content: "  C / C++  ██████████  Systems & HPC",
-    },
-    {
-      type: "success",
-      content: "  Python   ████████░░  AI/ML, Quant",
-    },
-    {
-      type: "success",
-      content: "  Rust     ██████░░░░  Low-latency tools",
-    },
-    {
-      type: "success",
-      content: "  TypeScript ████████░  Web & APIs",
-    },
+  interests: [
+    { type: "text", content: "What I'm into:" },
     { type: "text", content: "" },
-    { type: "text", content: "Tools & Frameworks:" },
-    {
-      type: "text",
-      content:
-        "  PyTorch · CUDA · NumPy · Pandas · Next.js · Linux · Docker",
-    },
+    { type: "success", content: "  AI / ML" },
+    { type: "text",    content: "  Machine learning, deep learning, LLMs — how models are built and why they work." },
     { type: "text", content: "" },
-    { type: "text", content: "Interests:" },
-    {
-      type: "text",
-      content:
-        "  Stochastic calculus · Options pricing · LLM inference · GPU clusters",
-    },
+    { type: "success", content: "  Finance" },
+    { type: "text",    content: "  Markets, derivatives, quantitative strategies, and the math underneath it all." },
+    { type: "text", content: "" },
+    { type: "success", content: "  Math" },
+    { type: "text",    content: "  Probability, linear algebra, optimization — the foundations behind both." },
   ],
 
-  projects: [
-    { type: "text", content: "Notable projects (scroll down for full list):" },
-    { type: "text", content: "" },
-    { type: "success", content: "  [C]       arena-allocator   — custom memory allocator" },
-    { type: "success", content: "  [Python]  monte-carlo-pricer — Black-Scholes MC engine" },
-    { type: "success", content: "  [Python]  momentum-bot      — live crypto trading strategy" },
-    { type: "success", content: "  [CUDA]    matmul-bench      — GEMM kernel benchmarks" },
-    { type: "text", content: "" },
-    { type: "text", content: 'See full grid by scrolling to #projects.' },
-  ],
+  // skills: [
+  //   { type: "text", content: "Languages:" },
+  //   { type: "success", content: "  Python      ████████░░  AI/ML, Quant" },
+  //   { type: "success", content: "  TypeScript  ████████░░  Web & APIs" },
+  //   { type: "text", content: "" },
+  //   { type: "text", content: "Tools & Frameworks:" },
+  //   { type: "text", content: "  PyTorch · NumPy · Pandas · Next.js" },
+  //   { type: "text", content: "" },
+  //   { type: "text", content: "Interests:" },
+  //   { type: "text", content: "  Options pricing · LLM inference · Stochastic calculus" },
+  // ],
+
+  // projects: [
+  //   { type: "text", content: "Notable projects (scroll down for full list):" },
+  //   { type: "text", content: "" },
+  //   { type: "success", content: "  coming soon..." },
+  // ],
 
   education: [
-    { type: "text", content: "University of Waterloo  (2023 – present)" },
+    { type: "text", content: "University of Waterloo  (2025 – present)" },
     { type: "success", content: "  Degree: Honours Bachelor of Mathematics" },
     {
       type: "text",
       content: "  Focus:  Applied Math, Statistics, Computational Finance",
     },
     { type: "text", content: "" },
-    { type: "text", content: "Code Ninjas  (2022 – 2023)" },
+    { type: "text", content: "Code Ninjas  (2023 – 2025)" },
     { type: "success", content: "  Role: Instructor" },
     {
       type: "text",
@@ -195,8 +176,8 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
 };
 
 export const BOOT_LINES = [
-  "Initializing portfolio v2.0...",
-  "Loading modules: [math] [quant] [ai] [systems]",
+  "Initializing portfolio...",
+  "Loading modules: [math] [ai] [finance]",
   "Connecting to remote server... OK",
   "Breaking into the mainframe... ACCESS GRANTED",
   'Type "help" to see available commands.',

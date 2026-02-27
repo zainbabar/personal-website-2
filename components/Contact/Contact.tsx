@@ -35,7 +35,7 @@ export default function Contact() {
         >
           <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-xs text-accent tracking-widest uppercase">
-              05 / Contact
+              03 / Contact
             </span>
             <div className="flex-1 h-px bg-border" />
           </div>

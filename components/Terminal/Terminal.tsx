@@ -62,6 +62,19 @@ export default function Terminal() {
 
   const focusInput = () => inputRef.current?.focus({ preventScroll: true });
 
+  // Blur the input when the terminal scrolls out of view so the browser
+  // doesn't snap the page back to keep a focused element visible
+  useEffect(() => {
+    const section = document.getElementById("hero");
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (!entry.isIntersecting) inputRef.current?.blur(); },
+      { threshold: 0.1 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   const runCommand = useCallback(
     (raw: string) => {
       const cmd = raw.trim().toLowerCase();

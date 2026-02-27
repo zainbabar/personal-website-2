@@ -59,22 +59,12 @@ export default function AsciiReveal({ zainLines, babarLines }: Props) {
         className="mt-6 flex justify-center gap-4"
       >
         <a
-          href="#projects"
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="px-6 py-2.5 border border-accent text-accent font-mono text-xs rounded hover:bg-accent-hover transition-colors tracking-widest uppercase"
-        >
-          View Projects
-        </a>
-        <a
           href="#contact"
           onClick={(e) => {
             e.preventDefault();
             document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="px-6 py-2.5 border border-border text-text-secondary font-mono text-xs rounded hover:border-muted hover:text-foreground transition-colors tracking-widest uppercase"
+          className="px-6 py-2.5 border border-accent text-accent font-mono text-xs rounded hover:bg-accent-hover transition-colors tracking-widest uppercase"
         >
           Contact
         </a>

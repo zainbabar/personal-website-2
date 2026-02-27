@@ -18,20 +18,12 @@ export default function Home() {
         <Terminal />
         <AsciiHero />
 
-        {/* Divider */}
         <div className="max-w-6xl mx-auto px-6">
           <div className="h-px bg-border" />
         </div>
 
-        {/* 02 — Projects */}
+        {/* 02 — Projects (coming soon) */}
         {/* <ProjectsGrid /> */}
-
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="h-px bg-border" />
-        </div>
-
-        {/* 03 — Hardware (disabled) */}
-        {/* <HardwareGallery /> */}
 
         {/* 03 — Experience */}
         <Timeline />
@@ -40,18 +32,10 @@ export default function Home() {
           <div className="h-px bg-border" />
         </div>
 
-        {/* 05 — GitHub */}
-        { /* <GitHubStats /> */}
-
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="h-px bg-border" />
-        </div>
-
-        {/* 06 — Contact */}
+        {/* 04 — Contact */}
         <Contact />
       </main>
 
-      {/* Footer with Live Status */}
       <footer>
         <LiveStatus />
       </footer>
