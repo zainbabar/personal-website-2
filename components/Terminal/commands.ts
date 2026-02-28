@@ -26,16 +26,20 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
     { type: "text", content: "" },
     {
       type: "text",
-      content: "First-year Mathematics student at the University of Waterloo.",
+      content: "Mathematics student at the University of Waterloo.",
     },
     {
       type: "text",
-      content: "Interested in AI/ML and finance — especially where they meet.",
+      content: "Building with agent and embodied AI — from tool-use and multi-agent",
+    },
+    {
+      type: "text",
+      content: "systems to robots that act in the physical world.",
     },
     { type: "text", content: "" },
     {
       type: "text",
-      content: "Currently learning, building, and figuring things out.",
+      content: "Also into quant finance and the math that ties it all together.",
     },
     { type: "text", content: "" },
     { type: "success", content: 'Type "interests" to see what I\'m into.' },
@@ -44,14 +48,20 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
   interests: [
     { type: "text", content: "What I'm into:" },
     { type: "text", content: "" },
+    { type: "success", content: "  Agent AI" },
+    { type: "text",    content: "  Multi-agent systems, tool use, memory, planning — building AI that actually does things." },
+    { type: "text", content: "" },
+    { type: "success", content: "  Embodied AI" },
+    { type: "text",    content: "  Robots, sim-to-real, foundation models for physical tasks — AI that lives in the world." },
+    { type: "text", content: "" },
     { type: "success", content: "  AI / ML" },
-    { type: "text",    content: "  Machine learning, deep learning, LLMs — how models are built and why they work." },
+    { type: "text",    content: "  LLMs, inference, fine-tuning, scaling — how models are built and why they work." },
     { type: "text", content: "" },
     { type: "success", content: "  Finance" },
     { type: "text",    content: "  Markets, derivatives, quantitative strategies, and the math underneath it all." },
     { type: "text", content: "" },
     { type: "success", content: "  Math" },
-    { type: "text",    content: "  Probability, linear algebra, optimization — the foundations behind both." },
+    { type: "text",    content: "  Probability, linear algebra, optimization — the foundations behind everything." },
   ],
 
   // skills: [
@@ -106,12 +116,13 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
   ],
 
   ls: [
-    { type: "text",    content: "total 128" },
+    { type: "text",    content: "total 256" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   6.1K  agent_loop.py" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   9.4K  embodied_policy.py" },
     { type: "success", content: "-rw-r--r--  1 zain zain   4.2K  quant_strategy.py" },
-    { type: "success", content: "-rw-r--r--  1 zain zain   8.8K  arena_allocator.c" },
     { type: "success", content: "-rw-r--r--  1 zain zain   3.1K  monte_carlo_pricer.py" },
-    { type: "success", content: "-rw-r--r--  1 zain zain   2.4K  black_scholes.ipynb" },
-    { type: "success", content: "drwxr-xr-x  4 zain zain   128B  secret_project/" },
+    { type: "success", content: "-rw-r--r--  1 zain zain   8.8K  arena_allocator.c" },
+    { type: "success", content: "drwxr-xr-x  7 zain zain   256B  multi_agent_project/" },
     { type: "error",   content: "-rw-------  1 zain zain   ???B  do_not_open.tar.gz" },
     { type: "text",    content: "-rw-r--r--  1 zain zain   1.1K  .bashrc" },
   ],
@@ -177,7 +188,7 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
 
 export const BOOT_LINES = [
   "Initializing portfolio...",
-  "Loading modules: [math] [ai] [finance]",
+  "Loading modules: [math] [agents] [embodied-ai] [finance]",
   "Connecting to remote server... OK",
   "Breaking into the mainframe... ACCESS GRANTED",
   'Type "help" to see available commands.',

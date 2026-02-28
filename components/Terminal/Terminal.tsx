@@ -180,7 +180,7 @@ export default function Terminal() {
           {/* Terminal body */}
           <div
             ref={scrollContainerRef}
-            className="relative p-6 min-h-[380px] max-h-[520px] overflow-y-auto cursor-text"
+            className="relative p-6 min-h-[380px] max-h-[520px] overflow-y-auto overscroll-contain cursor-text"
             onClick={focusInput}
           >
             <div className="terminal-scanline" />
