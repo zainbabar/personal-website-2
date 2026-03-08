@@ -108,8 +108,8 @@ export const COMMANDS: Record<string, CommandOutput[]> = {
     },
     {
       type: "link",
-      content: "  LinkedIn → linkedin.com/in/zainbabar",
-      href: "https://linkedin.com/in/zainbabar",
+      content: "  LinkedIn → linkedin.com/in/zain-babar-ba94571aa",
+      href: "https://www.linkedin.com/in/zain-babar-ba94571aa/",
     },
     { type: "text", content: "" },
     { type: "success", content: "  Or use the contact form below ↓" },

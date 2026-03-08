@@ -74,7 +74,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://linkedin.com/in/zainbabar"
+              href="https://www.linkedin.com/in/zain-babar-ba94571aa/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-5 bg-card border border-border rounded-xl hover:border-blue-400/30 transition-colors group"
@@ -86,7 +86,7 @@ export default function Contact() {
                 <div className="font-mono text-sm text-foreground group-hover:text-blue-400 transition-colors">
                   LinkedIn
                 </div>
-                <div className="font-mono text-xs text-muted">linkedin.com/in/zainbabar</div>
+                <div className="font-mono text-xs text-muted">linkedin.com/in/zain-babar-ba94571aa</div>
               </div>
             </a>
 
